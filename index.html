@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SlideShow </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+
+	<section class="slide-show"> 
+		<div class="slide active" style="background-image: url('images/slide-2.jpg');"> 
+			<div class="container"> 
+				<div class="caption"> 
+					<h1>Slide 1</h1>
+					<p> Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+				</div>
+			</div>
+		</div>
+		<div class="slide" style="background-image: url('images/slide-1.jpg');"> 
+			<div class="container"> 
+				<div class="caption"> 
+					<h1>Slide 2</h1>
+					<p> Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+				</div>
+			</div>
+		</div>
+		<div class="slide" style="background-image: url('images/slide-3.jpg');"> 
+			<div class="container"> 
+				<div class="caption"> 
+					<h1>Slide 3</h1>
+					<p> Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+  	    const slides=document.querySelector(".slide-show").children;
+        let index=0;
+              
+        function slideShow(){
+              if(index==slides.length){
+              	
+              		index=0;
+              }
+              for(let i=0; i<slides.length; i++){
+              	slides[i].classList.remove("active");
+              	slides[i].style.zIndex="";
+              }
+
+              if(index>0){
+              	slides[index-1].style.zIndex="2";
+              }
+
+              slides[index].classList.add("active");
+
+              index++;
+              setTimeout(slideShow,4000);
+        }
+
+        window.onload=slideShow()  ;
+  </script>
+</body>
+</html>
+
+
+
